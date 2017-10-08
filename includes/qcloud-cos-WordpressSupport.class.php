@@ -195,7 +195,7 @@ class qcloud_cos_WordpressSupport{
 			    'secret_id' => $this->cos_config['cos_secretid'],
 			    'secret_key' => $this->cos_config['cos_secretkey'],
 			    'region' => $this->cos_config['cos_region'],
-			    'timeout' => 60
+			    'timeout' => 10
 			    );
 			
 			InterfaceSDK::testConnection($config, $this->cos_config['cos_bucketName']);
