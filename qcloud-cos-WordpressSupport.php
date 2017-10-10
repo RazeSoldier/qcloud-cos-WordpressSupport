@@ -39,5 +39,5 @@ require_once __DIR__ . '/includes/qcloud-cos-WordpressSupport.class.php';
 register_activation_hook(__FILE__, array('qcloud_cos_WordpressSupport', 'install')); //在启用插件的时候初始化选项
 
 $qcws_IP = plugin_dir_path(__FILE__); //插件的安装路径
-$run = new qcloud_cos_WordpressSupport($qcws_IP);
+$run = new qcws\qcloud_cos_WordpressSupport($qcws_IP);
 add_action('admin_menu', array($run, 'loadSettingPage')); //加载插件管理面板

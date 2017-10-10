@@ -19,8 +19,7 @@
  * 
  * @file
  */
-
-//use QCloud\Cos\Api;
+namespace qcws;
 
 class qcloud_cos_WordpressSupport{
     /*

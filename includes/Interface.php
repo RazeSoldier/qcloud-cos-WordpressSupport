@@ -19,6 +19,8 @@
  * 
  * @file
  */
+namespace qcws;
+
 global $qcws_IP;
 require_once $qcws_IP.'includes/src/include.php';
 
