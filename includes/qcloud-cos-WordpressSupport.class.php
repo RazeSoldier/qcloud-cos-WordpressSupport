@@ -204,7 +204,7 @@ class qcloud_cos_WordpressSupport{
      * 
      * @return bool
      */
-    private function checkConfig(){
+    protected function checkConfig(){
 	if (!empty($this->cos_config['cos_bucketName']) and
 		!empty($this->cos_config['cos_region']) and
 		!empty($this->cos_config['cos_appid']) and
@@ -215,22 +215,5 @@ class qcloud_cos_WordpressSupport{
 	}else{
 	    return false;
 	}
-    }
-
-    /**
-     * 加载COS服务页面
-     */
-    public function loadCOSPage(){
-	if ($this->checkConfig()){
-	    $this->addCOSPageMeun();
-	}
-    }
-    
-    /**
-     * 在后台添加COS服务页面的菜单
-     */
-    private function addCOSPageMeun(){
-	//添加顶级菜单
-	add_menu_page( '腾讯云对象存储服务', '腾讯云对象存储服务', 'manage_options', 'COS', 'COSpage');
     }
 }
