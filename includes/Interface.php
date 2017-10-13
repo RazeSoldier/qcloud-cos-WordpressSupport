@@ -28,12 +28,27 @@ use QCloud\Cos\Api;
 
 class InterfaceSDK{
     public static function testConnection($config, $bucketName){
-	$cosApi = new Api($config);
-	$ret = $cosApi->listFolder($bucketName, '/');
-	if ($ret['message'] == 'SUCCESS'){
+	if (self::checkConnection($config, $bucketName)){
 	    echo '<p><strong>连接成功！</strong></p>';
 	}else{
 	    echo '<p><strong>连接失败！请检查你的设置是否正确</strong></p>';
+	}
+    }
+    
+    /**
+     * 测试与COS服务器的连接
+     * 
+     * @param string $config
+     * @param string $bucketName
+     * @return boolean
+     */
+    public static function checkConnection($config, $bucketName){
+	$cosApi = new Api($config);
+	$ret = $cosApi->listFolder($bucketName, '/');
+	if ($ret['message'] == 'SUCCESS'){
+	    return true;
+	}else{
+	    return false;
 	}
     }
 }
