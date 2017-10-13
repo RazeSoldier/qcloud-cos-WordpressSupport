@@ -179,12 +179,7 @@ class qcloud_cos_WordpressSupport{
      * 检查当前配置能否连接腾讯云
      */
     private function checkSettings(){
-	if (!empty($this->cos_config['cos_bucketName']) and
-		!empty($this->cos_config['cos_region']) and
-		!empty($this->cos_config['cos_appid']) and
-		!empty($this->cos_config['cos_secretid']) and
-		!empty($this->cos_config['cos_secretkey'])
-		){
+	if ($this->checkConfig()){
 		    require_once $this->IP.'includes/admin/TestConnectionHTML.php';
 		    if ($this->postRequest['test_submit'] == '测试'){
 			require_once $this->IP.'includes/Interface.php';
@@ -203,10 +198,32 @@ class qcloud_cos_WordpressSupport{
     }
     
     /**
+     * 检查用户是否设置了COSconfig
+     * 
+     * 如果没有设置或者没有设置完整，返回false；反之亦然
+     * 
+     * @return bool
+     */
+    private function checkConfig(){
+	if (!empty($this->cos_config['cos_bucketName']) and
+		!empty($this->cos_config['cos_region']) and
+		!empty($this->cos_config['cos_appid']) and
+		!empty($this->cos_config['cos_secretid']) and
+		!empty($this->cos_config['cos_secretkey'])
+		){
+	    return true;
+	}else{
+	    return false;
+	}
+    }
+
+    /**
      * 加载COS服务页面
      */
     public function loadCOSPage(){
-	$this->addCOSPageMeun();
+	if ($this->checkConfig()){
+	    $this->addCOSPageMeun();
+	}
     }
     
     /**
