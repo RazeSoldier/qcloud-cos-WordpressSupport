@@ -45,4 +45,21 @@ class COSpage extends qcloud_cos_WordpressSupport{
     public function setCOSpage(){
 	require_once $this->IP.'includes/admin/COSPageHTML.php';
     }
+    
+    /**
+     * 转换Bucket的地域为对应的中文
+     * 
+     * @return string
+     */
+    private function convertRegion(){
+	$region = $this->cos_config['cos_region'];
+	switch ($region) {
+	    case 'gz':
+		return '华南';
+	    case 'sh':
+		return '华中';
+	    case 'tj':
+		return '华北';
+	}
+    }
 }

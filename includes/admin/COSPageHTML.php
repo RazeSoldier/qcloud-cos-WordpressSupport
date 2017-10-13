@@ -31,7 +31,7 @@
 	    </tr>
 	    <tr>
 		<td><b>Bucket地域</b></td>
-		<td><?php echo $this->cos_config['cos_region']; ?></td>
+		<td><?php echo $this->convertRegion(); ?></td>
 	    </tr>
 	</tbody>
     </table>
