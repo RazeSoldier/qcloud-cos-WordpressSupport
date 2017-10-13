@@ -201,4 +201,19 @@ class qcloud_cos_WordpressSupport{
 		    }
 	}
     }
+    
+    /**
+     * 加载COS服务页面
+     */
+    public function loadCOSPage(){
+	$this->addCOSPageMeun();
+    }
+    
+    /**
+     * 在后台添加COS服务页面的菜单
+     */
+    private function addCOSPageMeun(){
+	//添加顶级菜单
+	add_menu_page( '腾讯云对象存储服务', '腾讯云对象存储服务', 'manage_options', 'COS', 'COSpage');
+    }
 }
