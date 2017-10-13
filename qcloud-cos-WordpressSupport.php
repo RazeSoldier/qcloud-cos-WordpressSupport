@@ -41,3 +41,5 @@ register_activation_hook(__FILE__, array('qcloud_cos_WordpressSupport', 'install
 $qcws_IP = plugin_dir_path(__FILE__); //插件的安装路径
 $run = new qcws\qcloud_cos_WordpressSupport($qcws_IP);
 add_action('admin_menu', array($run, 'loadSettingPage')); //加载插件管理面板
+
+add_action( 'admin_menu', array($run, 'loadCOSPage')); //加载COS服务页面
