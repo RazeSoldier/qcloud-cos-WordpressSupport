@@ -39,12 +39,12 @@ class qcloud_cos_WordpressSupport{
     /**
      * @var string $IP 插件安装路径
      */
-    private $IP;
+    protected $IP;
     
     /**
      * @var array $cos_config 储存从数据库取来的选项
      */
-    private $cos_config;
+    protected $cos_config;
     
     /**
      * @var array $postRequest 存储POST请求的数据

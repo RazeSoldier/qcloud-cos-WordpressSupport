@@ -44,4 +44,4 @@ $run = new qcws\qcloud_cos_WordpressSupport($qcws_IP);
 $COSpage = new qcws\COSpage($qcws_IP);
 add_action('admin_menu', array($run, 'loadSettingPage')); //加载插件管理面板
 
-add_action( 'admin_menu', array($COSpage, 'loadCOSPage')); //加载COS服务页面
+add_action('admin_menu', array($COSpage, 'loadCOSPage')); //加载COS服务页面
