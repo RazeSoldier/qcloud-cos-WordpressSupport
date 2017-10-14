@@ -33,15 +33,17 @@ if ( !function_exists( 'add_action' ) ) {
     die (1);
 }
 
-// 调用插件主类
-require_once __DIR__ . '/includes/qcloud-cos-WordpressSupport.class.php';
+require_once __DIR__ . '/includes/qcloud-cos-WordpressSupport.class.php'; // 调用插件主类
+//调用子类
 require_once __DIR__ . '/includes/COSpage.subclass.php';
+require_once __DIR__ . '/includes/SettingPage.subclass.php';
 
 register_activation_hook(__FILE__, array('qcloud_cos_WordpressSupport', 'install')); //在启用插件的时候初始化选项
 
 $qcws_IP = plugin_dir_path(__FILE__); //插件的安装路径
-$run = new qcws\qcloud_cos_WordpressSupport($qcws_IP);
-$COSpage = new qcws\COSpage($qcws_IP);
-add_action('admin_menu', array($run, 'loadSettingPage')); //加载插件管理面板
 
+$COSpage = new qcws\COSpage($qcws_IP);
+$SettingPage = new qcws\SettingPage($qcws_IP);
+
+add_action('admin_menu', array($SettingPage, 'loadSettingPage')); //加载插件管理面板
 add_action('admin_menu', array($COSpage, 'loadCOSPage')); //加载COS服务页面
